@@ -666,7 +666,7 @@ input[type='checkbox'] {
 
 .navbar-custom .navbar-brand.logo-text {
 	font: 700 2rem/1.5rem "Open Sans", sans-serif;
-	color: #5F4DEE;;
+	color: #878785;;
 	text-decoration: none;
 }
 
@@ -677,7 +677,7 @@ input[type='checkbox'] {
 
 .navbar-custom .nav-item .nav-link {
 	padding: 0.625rem 0.75rem 0.625rem 0.75rem;
-	color: #0087E3;
+	color: #878785;
 	opacity: 0.8;
 	text-decoration: none;
 	transition: all 0.2s ease;
@@ -685,7 +685,7 @@ input[type='checkbox'] {
 
 .navbar-custom .nav-item .nav-link:hover,
 .navbar-custom .nav-item .nav-link.active {
-	color: #1B0E92;
+	color: #878785;
 	opacity: 1;
 }
 
@@ -714,7 +714,7 @@ input[type='checkbox'] {
 	margin-top: 0;
 	border: none;
 	border-radius: 0.25rem;
-	background-color: #1B0E92;
+	background-color: #878785;
 }
 
 .navbar-custom .dropdown-item {
@@ -725,7 +725,7 @@ input[type='checkbox'] {
 }
 
 .navbar-custom .dropdown-item:hover {
-	background-color: #1B0E92;
+	background-color: #878785;
 	color: #fff;
 	opacity: 1;
 }
@@ -750,7 +750,7 @@ input[type='checkbox'] {
 
 .navbar-custom .nav-item .btn-outline-sm:hover {
 	background-color: #fff;
-	color: #1B0E92;
+	color: #C0C0C0;
 }
 
 .navbar-custom .navbar-toggler {
