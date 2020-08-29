@@ -1063,6 +1063,10 @@ $( document ).ready(function() {
 
 		$.ajax(settings).done(function (response) {
           $('#myModal').modal('show');
+		  $('#name').val('');
+		  $('#email').val('');
+		  $('#subject').val('');
+		  $('#mailfrom').val('');
 		});
        }
         
