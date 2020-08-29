@@ -1,4 +1,4 @@
-﻿
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -831,25 +831,25 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input disabled type="text" class="form-control" id="name" name="name" placeholder="Name" required data-error="Please enter your name">
+                                        <input  type="text" class="form-control" id="name" name="name" placeholder="Name" required data-error="Please enter your name">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input disabled type="text" placeholder="Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                                        <input  type="email" placeholder="Email" id="email" class="form-control" name="email" required data-error="Please enter your email">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <input disabled type="text" placeholder="Subject" id="msg_subject" class="form-control" required data-error="Please enter your subject">
+                                        <input  type="text" placeholder="Subject" id="msg_subject" class="form-control" required data-error="Please enter your subject">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <textarea disabled class="form-control" id="message" placeholder="Your Message" rows="7" data-error="Write your message" required></textarea>
+                                        <textarea  class="form-control" id="message" placeholder="Your Message" rows="7" data-error="Write your message" required></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="submit-button text-left">
@@ -900,6 +900,49 @@ India"></iframe>
         </div>
         <!-- end of container -->
     </div>
+
+    <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            CARGOSMART LOGISTICS
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <p>Thanks for contacting us, we have received your message. we will get in touch with you shortly.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+
+  <div id="myModal2" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            CARGOSMART LOGISTICS
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title"></h4>
+        </div>
+        <div class="modal-body">
+          <p>All fields are mandatory</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>
     <!-- end of copyright -->
     <!-- end of copyright -->
     <!-- Scripts -->
@@ -986,5 +1029,84 @@ India"></iframe>
 
         gtag('config', 'UA-175443711-1');
     </script>
+	
+	<script>
+
+$( document ).ready(function() {
+
+    $('#form-submit').on('click',function(){
+
+
+        $('#form-submit').text('Sending...');
+
+    if($('#name').val().length >0 
+    && $('#msg_subject').val().length>0
+    && $('#email').val().length>0
+    && $('#message').val().length>0)
+    {
+
+       if(checkEmail($('#email').val())){
+        var settings = {
+		  "url": "https://wa.betaproject.in/api/Mail",
+		  "method": "POST",
+		  "timeout": 0,
+		  "headers": {
+			"name": $('#name').val(),
+			"email": $('#email').val(),
+			"subject": $('#msg_subject').val(),
+			"mailfrom": $('#email').val(),
+			"message": $('#message').val(),
+			"mailto":'singhvibhuti@gmail.com'
+		  },
+		};
+
+		$.ajax(settings).done(function (response) {
+          $('#myModal').modal('show');
+		});
+       }
+        
+    }else{
+
+        if(($('#name').val().length ==0))
+        $('#name').attr('style', "border-radius: 5px; border:#FF0000 1px solid;");
+
+        if(($('#msg_subject').val().length ==0))
+        $('#msg_subject').attr('style', "border-radius: 5px; border:#FF0000 1px solid;");
+
+        if(($('#email').val().length ==0))
+        {
+            checkEmail($('#email').val());
+            $('#email').attr('style', "border-radius: 5px; border:#FF0000 1px solid;");
+        }
+       
+
+        if(($('#message').val().length ==0))
+        $('#message').attr('style', "border-radius: 5px; border:#FF0000 1px solid;");
+        $('#myModal2').modal('show');
+        $('#form-submit').text('Send Message');
+    }
+
+      
+    });
+});
+function checkEmail(str)
+{
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if(!re.test(str))
+    {
+        alert("Please enter a valid email address");
+        $('#email').attr('style', "border-radius: 5px; border:#FF0000 1px solid;");
+        return false;
+    }
+    else
+    {
+        $('#message').attr('style', "border-radius: 5px; border:green 1px solid;");
+        return true;
+    }
+        
+}
+
+    </script>
+    
 </body>
 </html>
