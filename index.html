@@ -1046,6 +1046,7 @@ $( document ).ready(function() {
     {
 
        if(checkEmail($('#email').val())){
+	 $('#form-submit').text('Ready to Sent');
         var settings = {
 		  "url": "https://wa.betaproject.in/api/Mail",
 		  "method": "POST",
@@ -1061,7 +1062,7 @@ $( document ).ready(function() {
 		};
 
 		$.ajax(settings).done(function (response) {
-          $('#myModal').modal('show');
+          		$('#myModal').modal('show');
 		});
        }
         
@@ -1100,6 +1101,7 @@ function checkEmail(str)
     }
     else
     {
+	$('#form-submit').text('Email Validated..');
         $('#message').attr('style', "border-radius: 5px; border:green 1px solid;");
         return true;
     }
