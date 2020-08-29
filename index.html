@@ -1060,7 +1060,7 @@ $( document ).ready(function() {
 			"mailto":'singhvibhuti@gmail.com'
 		  },
 		};
-
+ $('#form-submit').text('Sending...');
 		$.ajax(settings).done(function (response) {
           		$('#myModal').modal('show');
 		});
