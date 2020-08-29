@@ -1046,7 +1046,6 @@ $( document ).ready(function() {
     {
 
        if(checkEmail($('#email').val())){
-	 $('#form-submit').text('Ready to Sent');
         var settings = {
 		  "url": "https://wa.betaproject.in/api/Mail",
 		  "method": "POST",
@@ -1056,13 +1055,14 @@ $( document ).ready(function() {
 			"email": $('#email').val(),
 			"subject": $('#msg_subject').val(),
 			"mailfrom": $('#email').val(),
-			"message": $('#message').val(),
-			"mailto":'singhvibhuti@gmail.com'
+			"mailto":'singhvibhuti@gmail.com',
+			"Content-Type": "text/plain"
 		  },
+		   "data": $('#message').val(),
 		};
- $('#form-submit').text('Sending...');
+
 		$.ajax(settings).done(function (response) {
-          		$('#myModal').modal('show');
+          $('#myModal').modal('show');
 		});
        }
         
@@ -1101,7 +1101,6 @@ function checkEmail(str)
     }
     else
     {
-	$('#form-submit').text('Email Validated..');
         $('#message').attr('style', "border-radius: 5px; border:green 1px solid;");
         return true;
     }
